@@ -18,11 +18,14 @@ app.use(express.urlencoded({extended:false}))
 
 app.use('/', require('./routes/authRoutes'))
 
-app.use(cors({
-    origin: 'https://mern-auth-temp.vercel.app',
-    credentials: true,
-  }));
 
-const port = 8000;
+app.use(cors({
+    origin: ['https://mern-auth-temp.vercel.app', 'http://localhost:5173'], // you can set multiple origins
+    credentials: true,
+}));
+
+
+
+const port = process.env.PORT || 8000;
 app.listen(port, () => console.log(`Server is running on  port ${port}`))
 
