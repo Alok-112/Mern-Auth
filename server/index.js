@@ -18,6 +18,11 @@ app.use(express.urlencoded({extended:false}))
 
 app.use('/', require('./routes/authRoutes'))
 
+app.use(cors({
+    origin: 'https://mern-auth-temp.vercel.app',
+    credentials: true,
+  }));
+
 const port = 8000;
 app.listen(port, () => console.log(`Server is running on  port ${port}`))
 
